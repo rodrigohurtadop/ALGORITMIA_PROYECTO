@@ -1,0 +1,21 @@
+package clases;
+
+public class Venta {
+		
+	//Atributos
+	private static int generadorCodigo3 = 3001;
+	private int codigoVenta, codigoCliente, codigoProducto, cantidad;
+	private double precio;
+	private String fecha;
+	public Venta(int codigoVenta, int codigoCliente, int codigoProducto, int cantidad, double precio, String fecha) {
+		super();
+		this.codigoVenta = generadorCodigo3++;
+		this.codigoCliente = codigoCliente;
+		this.codigoProducto = codigoProducto;
+		this.cantidad = cantidad;
+		this.precio = precio;
+		this.fecha = fecha;
+	}
+	
+	
+}

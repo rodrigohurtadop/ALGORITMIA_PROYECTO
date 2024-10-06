@@ -1,0 +1,10 @@
+package clases;
+
+public class Venta {
+		
+	//Atributos
+	private static int generadorCodigo2 = 3001;
+	private int codigoVenta, codigoCliente, codigoProducto, cantidad;
+	private double precio;
+	private String fecha;
+}

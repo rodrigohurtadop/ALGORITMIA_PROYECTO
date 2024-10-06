@@ -1,0 +1,13 @@
+package clases;
+
+public class Producto {
+	
+	//Atributos
+	private static int generadorCodigo2 = 2001;
+	private int codigoProducto, stockActual, stockMin, stockMax;
+	private String nombre;
+	private double precio;
+	
+	
+
+}

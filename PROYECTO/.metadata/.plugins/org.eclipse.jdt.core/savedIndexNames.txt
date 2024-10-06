@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\Rodrigo\OneDrive - CIBERTEC\CIBERTEC 2024-2\ALGORITMIA Y DATOS\TF\PROYECTO\.metadata\.plugins\org.eclipse.jdt.core
+1067094681.index
+2063448064.index
+1865797976.index
