@@ -49,7 +49,7 @@ public class Mantenimiento_Productos extends JFrame {
 	 * Create the frame.
 	 */
 	public Mantenimiento_Productos() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 453, 558);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
