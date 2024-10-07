@@ -53,7 +53,7 @@ public class Mantenimiento_Clientes extends JFrame {
 	 * Create the frame.
 	 */
 	public Mantenimiento_Clientes() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 468, 653);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
