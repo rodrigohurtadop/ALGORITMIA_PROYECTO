@@ -38,7 +38,7 @@ public class Ventas_Ventas extends JFrame {
 	 * Create the frame.
 	 */
 	public Ventas_Ventas() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 505, 345);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
