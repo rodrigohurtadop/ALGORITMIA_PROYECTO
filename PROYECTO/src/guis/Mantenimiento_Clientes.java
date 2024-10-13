@@ -125,33 +125,48 @@ public class Mantenimiento_Clientes extends JFrame {
 		
 		JButton btnNewButton = new JButton("INGRESO");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (txtNomCli.getText().isEmpty() || txtApeCli.getText().isEmpty() || 
-			            txtDirecCli.getText().isEmpty() || txtTelCli.getText().isEmpty() || 
-			            txtDNICli.getText().isEmpty()) {
-			            
-			            mensaje("Por favor, llene todos los campos antes de ingresar un cliente.");
-			        } else {
-			            Cliente c1 = new Cliente(0, txtNomCli.getText(), txtApeCli.getText(), 
-			                                     txtDirecCli.getText(), txtTelCli.getText(), 
-			                                     txtDNICli.getText());
-			            try {
-			                listaClientes.add(c1);
-			                textArea.setText("");
-			                for (Cliente c : listaClientes) {
-			                    textArea.append("Código: " + c.getCodigoCliente() + "\n");
-			                    textArea.append("Datos: " + c.getNombres() + " " + c.getApellidos() + " - " + c.getDni() + "\n");
-			                    textArea.append("Dirección y Teléfono: " + c.getDireccion() + " - " + c.getTelefono() + "\n" + "\n");
-			                }
-			                limpieza();
-			            } catch (Exception e1) {
-			                mensaje("Error de Ingreso");
-			            }
-			        }
-			}
+		    public void actionPerformed(ActionEvent e) {
+		        if (txtNomCli.getText().trim().isEmpty() || 
+		            txtApeCli.getText().trim().isEmpty() || 
+		            txtDirecCli.getText().trim().isEmpty() || 
+		            txtTelCli.getText().trim().isEmpty() || 
+		            txtDNICli.getText().trim().isEmpty()) {
+
+		            mensaje("Por favor, llene todos los campos antes de ingresar un cliente.");
+		            return;  
+		        }
+		        String dniCliente = txtDNICli.getText().trim();
+		        boolean clienteExistente = listaClientes.stream()
+		                .anyMatch(c -> c.getDni().equalsIgnoreCase(dniCliente));
+		        if (clienteExistente) {
+		            mensaje("Error: Cliente ya registrado con este DNI.");
+		        } else {
+		            try {
+		                Cliente c1 = new Cliente(
+		                    0, 
+		                    txtNomCli.getText().trim(), 
+		                    txtApeCli.getText().trim(),
+		                    txtDirecCli.getText().trim(), 
+		                    txtTelCli.getText().trim(), 
+		                    dniCliente
+		                );
+		                listaClientes.add(c1);
+		                textArea.setText("");
+		                for (Cliente c : listaClientes) {
+		                    textArea.append("Código: " + c.getCodigoCliente() + "\n");
+		                    textArea.append("Datos: " + c.getNombres() + " " + c.getApellidos() + " - " + c.getDni() + "\n");
+		                    textArea.append("Dirección y Teléfono: " + c.getDireccion() + " - " + c.getTelefono() + "\n\n");
+		                }
+		                limpieza();  
+		            } catch (Exception ex) {
+		                mensaje("Error de Ingreso: " + ex.getMessage());
+		            }
+		        }
+		    }
 		});
 		btnNewButton.setBounds(287, 29, 115, 23);
 		contentPane.add(btnNewButton);
+
 		
 		JButton btnNewButton_1 = new JButton("MODIFICACIÓN");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -264,9 +279,6 @@ public class Mantenimiento_Clientes extends JFrame {
 	
 	// Métodos tipo void (sin parámetros)
 
-	void imprimir() {
-	imprimir("");
-	}
 
 	void limpieza() {
 	txtCodCli.setText("");
